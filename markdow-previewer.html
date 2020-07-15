@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <script src="marked.js"></script>
+      <script>
+        // marked.setOptions({
+        //     renderer: new marked.Renderer(),
+        //     highlight: function(code, language) {
+        //       const hljs = require('highlight.js');
+        //       const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+        //       return hljs.highlight(validLanguage, code).value;
+        //     },
+        //     pedantic: false,
+        //     gfm: true,
+        //     breaks: false,
+        //     sanitize: false,
+        //     smartLists: true,
+        //     smartypants: false,
+        //     xhtml: false
+        //   });
+          // Compile
+console.log(marked('# looool'));
+function updatePreview() {
+    let previewElement = document.getElementById('preview')
+    let editorValue = document.getElementById('editor').value
+    let markedUpHTML = marked(editorValue)
+    previewElement.innerHTML = markedUpHTML
+};
+        function setDefault() {
+          let defaultText = `\
+# keep coding
+## markedown previewer
+[learn more](http://www.keepcoding.com)
+<dl>
+<dt>Definiton of </dt>
+<dd>is something strange</dd>
+</dl>
+
+
+\`This is an example of inline code\`
+\`\`\`
+function example() {
+return multiline
+}
+\`\`\`
+
+- this
+- is
+- an
+- example 
+- of
+- list item
+> this is an example of codeblock
+![learn more about this](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.0KFB17_NGTPB0XWyc4BSgQHaCJ%26pid%3DApi%26h%3D160&f=1)
+
+**bolded text**
+`;
+        let editorField = document.getElementById('editor');
+          let previewElement = document.getElementById('preview');
+          editorField.value = defaultText;
+          previewElement.innerHTML = marked(defaultText)
+        }
+      </script>
+    <title>Markdown-Previewer by Michael Segun-Aina</title>
+  </head>
+  <body onload="setDefault()">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col text-center bg-success">
+                  <h1>Markdown-Previewer</h1>
+                </div>
+          </div>
+          <div class="row">
+            <div class="col-6 bg-primary">
+                <h2 align="center" class="text-white">Editor</h2>
+                <textarea class="form-control" id="editor" onkeyup="updatePreview()"></textarea>
+            </div>
+            <div class="col-6 bg-danger">
+                <h2 align="center" class="text-white">Previewer</h2>
+                <div id="preview"></div>
+            </div>
+          </div>
+      </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
